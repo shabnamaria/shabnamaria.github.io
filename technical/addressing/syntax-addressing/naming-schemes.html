@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>W3 Naming Schemes - WorldWideWeb</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>W3 Naming Schemes</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../technical-details.html">Technical</a></li><li>Addressing</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p class="page-intro">The WorldWideWeb uses a universal addressing format to identify documents and anchors across different naming sub-schemes and network protocols.</p>
+<section>
+<h2>Address Syntax</h2>
+<p>For most internet-based access methods, the naming format follows this structure:</p>
+<p><mark>scheme : // host.domain : port / path / path # anchor</mark></p>
+            
+            [Image of the anatomy of a URL showing scheme, host, port, path, and anchor]
+
+            <ul>
+<li><strong>Anchor Identifier (#):</strong> An optional suffix that refers to a specific location within a document.</li>
+<li><strong>Search Query (?):</strong> A suffix followed by keywords (separated by +) used to search an index.</li>
+<li><strong>Relative Names:</strong> References between documents with similar names can be abbreviated, though this requires specific path representation.</li>
+</ul>
+</section>
+<section>
+<h2>Common Examples</h2>
+<pre><code>file://cernvax.cern.ch/usr/lib/WWW/default.html#123</code></pre>
+<p>A fully qualified file name referring to a document on a specific internet node and a specific anchor (#123) within it.</p>
+<pre><code>#greg</code></pre>
+<p>Refers to the anchor "greg" within the current active document.</p>
+</section>
+<section>
+<h2>Addressing Sub-Schemes</h2>
+<p>Each scheme typically utilizes a different network protocol. While formats vary, most internet-based schemes share a common node and port structure.</p>
+<dl>
+<dt><a href="http-addressing.html">http</a></dt>
+<dd>Access to hypermedia via the HTTP protocol. Internal addressing is mapped directly onto a W3 path.</dd>
+<dt><a href="file-addressing.html">file</a></dt>
+<dd>Access to local or remote files via browser-specific or gateway-mediated methods.</dd>
+<dt><a href="news-addressing.html">news</a></dt>
+<dd>Access to Usenet news articles and newsgroups, typically via the NNTP protocol.</dd>
+<dt><a href="gopher-addressing.html">gopher</a></dt>
+<dd>Access via the Gopher protocol, which uses distinct menus and text files rather than integrated hypertext.</dd>
+<dt><a href="telnet-addressing.html">telnet</a></dt>
+<dd>Interactive sessions for existing online systems that have not yet been mapped onto the W3 space.</dd>
+<dt><a href="wais-addressing.html">wais</a></dt>
+<dd>Access using the WAIS adaptation of the Z39.50 protocol, often via a gateway.</dd>
+</dl>
+</section>
+<section>
+<h2>Gateways and Interoperability</h2>
+<p>Systems not directly accessed by W3 servers can be reached through <strong>gateways</strong>. In these cases, the original document address is encoded within the HTTP address. This allows even simple clients to follow links through complex systems like X.500 name servers.</p>
+</section>
+<address>
+            Tim Berners-Lee
+        </address>
+
+
+</main>
+
+</body>
+</html>

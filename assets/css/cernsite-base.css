@@ -1,0 +1,47 @@
+/* =============================================================
+   cernsite-base.css  —  loaded by EVERY page
+   NVCC · ITE170 · WWW Student Site
+   ============================================================= */
+
+/* ── Brand tokens ── */
+:root {
+    --brand-jade:   #042C1B;
+    --brand-amber:  #D8A100;
+    --brand-blue:   #0F3888;
+    --brand-pink:   #4B0C1F;
+    --brand-green:  #015234;
+    --charcoal:     #2C2C2C;
+}
+
+/* ── Typography ── */
+body { font-family: 'Quicksand', sans-serif; }
+h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+/* ── Links: blue text, green underline ── */
+a {
+    color: var(--brand-blue);
+    text-decoration-color: var(--brand-green);
+    text-underline-offset: 3px;
+}
+a:hover {
+    color: var(--brand-pink);
+    text-decoration-color: var(--brand-pink);
+}
+
+/* ── H1 ── */
+header h1 { margin-bottom: 0.25rem; }
+
+/* ── Decorative title rule (amber → jade gradient) ── */
+.title-rule {
+    border: none;
+    height: 3px;
+    background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+/* ── Collapse Pico's default top padding on header and main ── */
+header,
+#main-content {
+    padding-top: 0;
+}
