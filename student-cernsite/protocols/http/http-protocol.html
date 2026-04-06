@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HyperText Transfer Protocol</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>HyperText Transfer Protocol</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../technical/technical-details.html">Technical</a></li><li><a href="../relevant-protocols.html">Protocols</a></li><li>HTTP Protocol</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<section id="see-also">
+<p>See also:</p>
+<ul>
+<li><a href="WhyHTTP.html" id="why-http">Why a new protocol?</a></li>
+<li><a href="RelevantProtocols.html" id="relevant-protocols">Other protocols used</a></li>
+<li>The HTTP protocol as <a href="HTTP/AsImplemented.html" id="as-implemented">currently implemented</a></li>
+<li><a href="DesignIssues.html" id="design-issues">Protocol design issues</a>.</li>
+</ul>
+<p>The definition of this protocol is in the public domain (see <a href="../Policy.html" id="policy-link">policy</a>).</p>
+</section>
+<section id="underlying-protocol">
+<h2>Underlying protocol</h2>
+<p>Current HTTP uses ASCII transmission over a telnet-style internet protocol, to make it simple to program, so that it will catch on: conversion to run over an OSI stack will be simple as the structure of the messages is well defined.</p>
+</section>
+<section id="idempotent">
+<h2><a id="idempotent-def">Idempotent</a></h2>
+<p>This protocol is stateless, in that no state is kept by the server on behalf of the client. (This does not rule out caching by the server internally).</p>
+</section>
+<section id="request">
+<h2>Request: Information transferred from client</h2>
+<p>Parameters below, however represented on the network, are given in upper case, with parameter names in lower case. This set assumes a model of format negotiation in which in which the client says what he can take, and the server decides what to give him. One imagines that each function would return a status, as well as information specified below.</p>
+<p>When running over a byte stream protocol, SGML would be an encoding possibility (as well as ASN/1 etc).</p>
+<dl>
+<dt><code>GET document_name</code> <a href="../MarkUp/HTRQ.html" id="htrq-link">HTRQ</a></dt>
+<dd>Please transfer a named document back. Transfer the results back in a standard format or one which I have said I can accept.</dd>
+<dt><code>SEARCH keywords</code></dt>
+<dd>Please search the given index document for all items with the given word combination, and transfer the results back as marked up hypertext. This could elaborate to an SQL query. There are many advantages in making the search criterion just a subset of the document name space.</dd>
+<dt><code>SINCE datetime</code></dt>
+<dd>For a search, refer to documents only dated on or after this date. Used typically for building a journal, or for incremental update of indexes and maps of the web.</dd>
+<dt><code>BEFORE datetime</code></dt>
+<dd>For a search, refer to documents before this date only.</dd>
+<dt><code>ACCEPT format penalty</code></dt>
+<dd>I can accept the given formats. The <a href="Penalties.html" id="penalty-link">penalty</a> is a set of numbers giving an estimate of the data degradation and elapsed time penalty which would be suffered at the CLIENT end by data being received in this way. Gateways may add or modify these fields.</dd>
+<dt><a id="port-command">PORT</a></dt>
+<dd>See the <a href="rfc959.txt" id="rfc959-link">RFC959</a> PORT command. We could change the default so that if the port command is NOT specified, then data must be sent back down the same link. In an idempotent world, this information would be included in the <a href="#idempotent-def" id="get-command-ref">GET</a> command.</dd>
+<dt><code>HEAD doc</code></dt>
+<dd>Like GET, but get only header information. One would have to decide whether the header should be in SGML or in protocol format (e.g. RPC parameters or internet mail header format). The function of this would be to allow overviews and simple indexes to be built without having to retrieve the whole document. See the <a href="RelevantProtocols.html" id="rfc977-link">RFC977</a> HEAD command. The process of generation of the header of a document from the source (if that is how it is derived) is subject to the same possibilities (caching, etc) as a format conversion from the source.</dd>
+<dt><code>USER id</code></dt>
+<dd>The user name for logging purposes, preferably a mail address. Not for authentication unless no other authentication is given.</dd>
+<dt><code>AUTHORITY authentication</code></dt>
+<dd>A string to be passed across transparently. The protocol is open to the authentication system used.</dd>
+<dt><code>HOST</code></dt>
+<dd>The calling host name - useful when the calling host is not properly registered with a name server.</dd>
+<dt><code>Client Software</code></dt>
+<dd>For interest only, the application name and version number of the client software. These values should be preserved by gateways.</dd>
+</dl>
+</section>
+<section id="response">
+<h2>Response</h2>
+<p>Suppose the response is an SGML document, with the document type a function of the status. (<a href="HTTP/Ex1.html" id="example-link">Example</a>)</p>
+<dl>
+<dt>Status</dt>
+<dd>A status is required in machine-readable format. See the 3-figure status codes of FTP for example. Bad status codes should be accompanied by an explanatory document, possibly containing links to further information. A possibility would be to make an error response a special SGML document type. Some special status codes are mentioned <a href="#status-codes" id="status-codes-ref">below</a>.</dd>
+<dt>Format</dt>
+<dd>The format selected by the server</dd>
+<dt>Document</dt>
+<dd>The document in that format</dd>
+</dl>
+</section>
+<section id="status-codes">
+<h2><a id="status-codes-def">Status codes</a></h2>
+<dl>
+<dt>Success</dt>
+<dd>Accompanied by format and document.</dd>
+<dt>Forward</dt>
+<dd>Accompanied by new address. The server indicates a new address to be used by the client for finding the document. The document may have moved, or the server may be a name server.</dd>
+<dt>Need Authorization</dt>
+<dd>The authorization is not sufficient. Accompanied by the address prefix for which authorization is required. The browser should obtain authorization, and use it every time a request is made for a document name matching that prefix.</dd>
+<dt>Refused</dt>
+<dd>Access has been refused. Sending (more) authorization won't help.</dd>
+<dt>Bad document name</dt>
+<dd>The document name did not refer to a valid document.</dd>
+<dt>Server failure</dt>
+<dd>Not the client's fault. Accompanied by a natural language explanation.</dd>
+<dt>Not available now</dt>
+<dd>Temporary problem - trying at a later time might help. This does not imply anything about the document name and authorization being valid. Accompanied by a natural language explanation.</dd>
+<dt>Search fail</dt>
+<dd>Accompanied by a HTML hit-list without any hits, but possibly containing a natural explanation.</dd>
+</dl>
+</section>
+<address>
+<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" id="tim-bl-disclaimer">Tim BL</a>
+</address>
+
+
+</main>
+
+</body>
+</html>

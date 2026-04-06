@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>W3 Tools - WorldWideWeb</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>W3 Tools</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../index.html">Home</a></li><li>Tools</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p class="page-intro">The WorldWideWeb ecosystem includes a variety of utilities designed to aid in server management, automated hypertext generation, and document translation across the multiverse.</p>
+<section id="server-management">
+<h2>Server Management</h2>
+<dl>
+<dt><a href="../daemon/internals-basic.html">W3 Basic Daemon</a></dt>
+<dd>The core server program developed as part of the W3 project code.</dd>
+<dt><a href="../data-sources/w3-server-overview.html#oracle-server">Gateway Servers</a></dt>
+<dd>Adaptable skeletons for creating gateways between the web and existing database systems.</dd>
+</dl>
+</section>
+
+        [Image of a data flow diagram for web server log analysis]
+
+        <section id="content-conversion">
+<h2>Content Conversion</h2>
+<dl>
+<dt><a>FrameMaker Interface</a></dt>
+<dd>Tools provided by Dan Connolly (Convex) that allow FrameMaker to function as a W3 authoring tool, including MIF to HTML translation. Source is available via anonymous FTP at <span class="file-path">info.cern.ch/www/src</span>.</dd>
+<dt>HTML to TeX Conversion</dt>
+<dd>Used to generate the printable "WWW Book." This process utilizes the <code class="file-path">Makefile</code> alongside custom sed scripts: <code class="file-path">html2latex.sed</code> and <code class="file-path">sub1.sed</code>.</dd>
+<dt><a>Generating HTML</a></dt>
+<dd>A collection of scripts for generating SGML hypertext from directory listings and validating or correcting existing HTML structures.</dd>
+</dl>
+</section>
+<section id="analysis">
+<h2>Log Analysis</h2>
+<p>Analyzing server traffic requires converting numeric Internet node addresses into domain names. The <code class="file-path">httpd-analyse.c</code> program performs this conversion, providing a clean data stream for further processing via AWK or Grep.</p>
+</section>
+<address>
+            Tim Berners-Lee / CERN
+        </address>
+
+
+</main>
+
+</body>
+</html>

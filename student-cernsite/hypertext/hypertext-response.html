@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HTTP Response Examples - WorldWideWeb</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+
+        /* Utility class to prevent overflow on long strings (WCAG Reflow compliance) */
+        .break-word {
+            word-break: break-all;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="#">HTTP</a></li>
+            <li>HTTP Response Examples</li>
+        </ul>
+    </nav>
+    <h1>HTTP Response Examples</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+    <p class="page-intro">Possible replies one could imagine, encoded as SGML:</p>
+    
+    <section>
+        <p>a normal HTML document</p>
+    </section>
+
+    <section>
+        <h2>Document with preprocessing instructions:</h2>
+        <pre tabindex="0"><code>
+&lt;header&gt;normal HTML&lt;/header&gt;
+&lt;body class="break-word"&gt;asdfghjklsdfghjklasdfghjksdfhjkzxcvbnmeryuioxcvbjewft76t8yytcvncncnryxmry02zmxnxjxb7wdtx7b7rtwbt87&lt;/body&gt;
+        </code></pre>
+    </section>
+
+    <section>
+        <h2>A response indicating that authorisation is required:</h2>
+        <p>This is a Delphi collaboration document. You can only access it if you can identify yourself as a Delphi member.</p>
+    </section>
+
+    <section>
+        <h2>An error response:</h2>
+        <p>Sorry, you can only access this object within the CERN site for copyright reasons. Complaints to <a href="http://crnvmc.cern.ch/WHO/fred">Mr Bloggs</a>.</p>
+    </section>
+
+    <section>
+        <h2>A forward response with a set of possible forward addresses:</h2>
+        <pre tabindex="0"><code>
+&lt;link type="forward" href="http://junk.edu/junk/junk.ps"&gt;
+&lt;link type="forward" href="http://fred.com/junk/junk.ps"&gt;
+        </code></pre>
+        <p>Directory lookup successful.</p>
+    </section>
+
+    <hr/>
+    <footer>
+        <p><a id="0" href="../../People.html#11">CTB</a></p>
+    </footer>
+
+</main>
+</body>
+</html>

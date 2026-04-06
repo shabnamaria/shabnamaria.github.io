@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Protocol Specifications relevant to HyperText</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Relevant Protocols</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../index.html">Home</a></li><li><a href="../technical/technical-details.html">Technical</a></li><li>Protocols</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p class="page-intro">The <a href="../">WorldWideWeb</a> system can pick up information from many information sources, using existing protocols. Among these are file and news transfer protocols.</p>
+<section>
+<h2>File Transfer</h2>
+<p>The file transfer protocol currently most used for accessing fairly stable public information over a wide area is "Anonymous FTP". This means the use of the internet File Transfer Protocol without authentication. As the WWW project currently operates for the sake of public information, anonymous FTP is quite appropriate.</p>
+<p>FTP is defined in <a href="">RFC 959</a>. Directories are browsed as hypertext. The browser will notice references to files which are in fact accessible as locally mounted and use direct access instead.</p>
+</section>
+<section>
+<h2>Network News</h2>
+<p>The "Network News Transfer Protocol" (NNTP) is defined in <a href="#">RFC 977</a>. This allows transient news information in the USENET news format to be exchanged over the internet. The format of news articles is defined in <a href="#t">RFC 850</a>, which in turn refers to the standard <a href="#">RFC 822</a> for internet mail messages.</p>
+<p>News articles make good examples of hypertext, as articles contain references to other articles and news groups. News groups appear like directories, but more informative.</p>
+</section>
+<section>
+<h2>Search and Retrieve</h2>
+<p>The WWW project defines its own protocol for information transfer, called HTTP, for <a href="http/http-protocol.html">HyperText Transfer Protocol</a>. HTTP is a very simple internet protocol, similar in implementation to FTP and NNTP. The HTTP client sends a <a href="#">document identifier</a> with or without search words, and the server responds with hypertext or plain text.</p>
+<p>The protocol runs over TCP, using one connection per document request. The browser acts as a pipeline, so that as data arrives from the server, it is presented to the reader on the fly.</p>
+</section>
+<section>
+<h2>Gopher</h2>
+<p>The Gopher distributed information system uses a lightweight <a href="#">protocol</a> very similar to HTTP. It is now included in every WWW client, so that the Gopher world can be browsed as part of the Web. Gopher menus are easily mapped onto hypertext links.</p>
+</section>
+
+
+</main>
+
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Server Installation - WorldWideWeb</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Server Installation</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../w3-server-overview.html">W3 Server Overview</a></li><li>Installation</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p class="page-intro">Deploying a WorldWideWeb daemon requires careful configuration of the host environment. This guide outlines the primary methods for installing the basic HTTP daemon (<code>httpd</code>) to ensure seamless hypermedia delivery across the network.</p>
+<section id="installation-methods">
+<h2>Primary Installation Methods</h2>
+<p>The usual way to install a daemon is to either run it from the bootstrap command file (for example <code>/etc/rc</code>) so that it runs continuously, or to set up the internet daemon (<code>inetd</code>) to run it when a call comes in.</p>
+<div class="historical-note">
+<p><strong>Requirement:</strong> Remember to establish a <a href="rule-file.html">rule file</a> unless you explicitly suppress this requirement with the <code>-R</code> command-line option.</p>
+</div>
+</section>
+<section id="internet-daemon">
+<h2>Using the Internet Daemon</h2>
+<p>For BSD Unix systems, a CSH script is provided to automate this process. This script may require minor edits to function correctly on other system variants.</p>
+<p>Otherwise, follow the standard <a href="Inetd.html">instructions for installing a server under the internet daemon</a> to ensure the service handles incoming requests appropriately.</p>
+</section>
+<section id="logging">
+<h2>Log Configuration</h2>
+<p>If a log file is required for traffic analysis or debugging, verify that the user name under which the daemon is executed has the necessary permissions to write to the specified file path.</p>
+</section>
+<address>
+            Tim Berners-Lee / CERN
+        </address>
+
+
+</main>
+
+</body>
+</html>

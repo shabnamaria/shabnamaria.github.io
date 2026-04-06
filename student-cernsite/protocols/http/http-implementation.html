@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>The HTTP Protocol As Implemented In W3</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>HTTP as implemented in WWW</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../technical/technical-details.html">Technical</a></li><li><a href="../relevant-protocols.html">Protocols</a></li><li>HTTP Implementation</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p>This document defines the Hypertext Transfer protocol (HTTP) as currently implemented by the <a href="../../" id="project-link">WorldWideWeb</a> initiative software. This is a subset of the <a href="../HTTP.html" id="proposed-protocol">proposed</a> full HTTP protocol. No client profile information is transferred with the query. Future HTTP protocols will be back-compatible with this protocol.</p>
+<p>The definition of this protocol is in the public domain (see <a href="../../Policy.html" id="policy-link">policy</a>).</p>
+<p>The protocol uses the normal internet-style telnet protocol style on a TCP-IP link. The following describes how a client acquires a (hypertext) document from an HTTP server, given an HTTP document <a href="../../Addressing/HTTPAddressing.html" id="addressing-link">address</a>.</p>
+<section id="connection">
+<h2>Connection</h2>
+<p>The client makes a TCP-IP connection to the host using the <a href="../../Addressing/BNF.html#5" id="domain-link">domain name</a> or <a href="../../Addressing/BNF.html#45" id="ip-link">IP number</a>, and the <a href="../../Addressing/BNF.html#7" id="port-link">port number</a> given in the address.</p>
+<p>If the port number is not specified, 80 is always assumed for HTTP.</p>
+<p>The server accepts the connection.</p>
+<div class="technical-note">
+<p><strong>Note:</strong> HTTP currently runs over TCP, but could run over any connection-oriented service. The interpretation of the protocol below in the case of a sequenced packet service (such as DECnet™ or ISO TP4) is that the request should be one TPDU, but the response may be many.</p>
+</div>
+</section>
+<section id="request">
+<h2>Request</h2>
+<p>The client sends a document request consisting of a line of ASCII characters terminated by a CR LF (carriage return, line feed) pair. A well-behaved server will not require the carriage return character.</p>
+<p>This request consists of the word "GET", a space, the <a href="../../Addressing/BNF.html#1" id="doc-address">document address</a>, omitting the "http:", host and port parts when they are the coordinates just used to make the connection. (If a gateway is being used, then a full document address may be given specifying a different naming scheme).</p>
+<p>The search functionality of the protocol lies in the ability of the addressing syntax to describe a <a href="../../Addressing/Search.html" id="search-index">search on a named index</a>.</p>
+<p>A search should only be requested by a client when the index document itself has been described as an index using the <a href="../../MarkUp/Tags.html#18" id="isindex-tag">ISINDEX tag</a>.</p>
+</section>
+<section id="response">
+<h2>Response</h2>
+<p>The response to a simple GET request is a message in hypertext mark-up language (<a href="../../MarkUp/MarkUp.html" id="html-markup">HTML</a>). This is a byte stream of ASCII characters.</p>
+<p>Lines shall be delimited by an optional carriage return followed by a mandatory line feed character. The client should not assume that the carriage return will be present. Lines may be of any length. Well-behaved servers should restrict line length to 80 characters excluding the CR LF pair.</p>
+<p>The format of the message is HTML — that is, a trimmed SGML document. Note that this format allows for menus and hit lists to be returned as hypertext. It also allows for plain ASCII text to be returned following the <a href="../../MarkUp/Tags.html#7" id="plaintext-tag">PLAINTEXT tag</a>.</p>
+<p>The message is terminated by the closing of the connection by the server.</p>
+<p>Well-behaved clients will read the entire document as fast as possible. The client shall not wait for user action (output paging for example) before reading the whole of the document. The server may impose a timeout of the order of 15 seconds on inactivity.</p>
+<p>Error responses are supplied in human readable text in HTML syntax. There is no way to distinguish an error response from a satisfactory response except for the content of the text.</p>
+</section>
+<section id="disconnection">
+<h2>Disconnection</h2>
+<p>The TCP-IP connection is broken by the server when the whole document has been transferred.</p>
+<p>The client may abort the transfer by breaking the connection before this, in which case the server shall not record any error condition.</p>
+<p>Requests are <a href="../HTTP.html#13" id="idempotent-link">idempotent</a>. The server need not store any information about the request after disconnection.</p>
+</section>
+
+
+</main>
+
+</body>
+</html>

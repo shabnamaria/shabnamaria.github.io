@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>BNF -- /Addressing</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>W3 address syntax: BNF</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../index.html">Home</a></li><li><a href="../technical/technical-details.html">Technical</a></li><li><a href="markup.html">HTML Format</a></li><li>BNF</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+        This is a BNF-like description of the <a href="naming-schemes.html">W3 addressing syntax</a> . We use
+a vertical line "|" to indicate alternatives, and [brackets] to indicate
+optional parts.   Spaces are representational only: no spaces are
+actually allowed within a W3 address. Single letters stand for single
+letters. All words of more than one letter below are entites described
+elsewhere in the syntax description.  (Entity names are here linked
+to their definitions, probably making this difficult to read with
+the line mode browser.)
+<p>An absolute address specified in a link is an <a href="#bnf-anchoraddress">anchoraddress</a> . The
+address which is passed to a server is a <a href="#bnf-docaddress">docaddress</a> .
+<dl>
+<dt id="bnf-anchoraddress">anchoraddress
+<dd><a href="#bnf-docaddress"> docaddress</a> [ # <a href="#bnf-anchor">anchor</a> ]
+<dt id="bnf-docaddress">docaddress
+<dd><a href="#bnf-httpaddress"> httpaddress</a> | <a href="#bnf-fileaddress">fileaddress</a> | <a href="#bnf-newsaddress">newsaddress</a> | <a href="#bnf-telnetaddress">telnetaddress</a>
+| <a href="#bnf-prosperoaddress">prosperoaddress</a>
+| <a href="#bnf-gopheraddress">gopheraddress</a> | <a href="#bnf-waisaddress">waisaddress</a>
+<dt id="bnf-httpaddress">httpaddress
+<dd> h t t p :   / / <a href="#bnf-hostport">hostport</a>  [  / <a href="#bnf-path">path</a> ] [ ? <a href="#bnf-search">search</a> ]
+<dt id="bnf-prosperoaddress">prosperoaddress
+<dd> p r o s p e r o : / / <a href="#bnf-hostport">hostport</a>
+/  <a href="#bnf-path">path</a>
+<dt id="bnf-fileaddress">fileaddress
+<dd> f i l e : / / <a href="#bnf-host">host</a> / <a href="#bnf-path">path</a>
+<dt id="bnf-newsaddress">newsaddress
+<dd> n e w s : <a href="#bnf-groupart">groupart</a>
+<dt id="bnf-waisaddress">waisaddress
+<dd>waisindex | waisdoc
+<dt id="bnf-waisindex">waisindex
+<dd>w a i s : / / <a href="#bnf-hostport">hostport</a> / <a href="#bnf-database">database</a> [ ? <a href="#bnf-search">search</a> ]
+<dt id="bnf-waisdoc">waisdoc
+<dd>w a i s : / / <a href="#bnf-hostport">hostport</a> / <a href="#bnf-database">database</a> / <a href="#bnf-wtype">wtype</a> / <a href="#bnf-digits">digits</a> / <a href="#bnf-path">path</a>
+<dt id="bnf-groupart">groupart
+<dd> * | <a href="#bnf-group">group</a> | <a href="#bnf-article">article</a>
+<dt id="bnf-group">group
+<dd><a href="#bnf-ialpha"> ialpha</a> [ . <a href="#bnf-group">group</a> ]
+<dt id="bnf-article">article
+<dd><a href="#bnf-xalphas"> xalphas</a> @ <a href="#bnf-host">host</a>
+<dt id="bnf-database">database
+<dd><a href="#bnf-xalphas">xalphas</a>
+<dt id="bnf-wtype">wtype
+<dd><a href="#bnf-xalphas">xalphas</a>
+<dt id="bnf-telnetaddress">telnetaddress
+<dd> t e l n e t : / / [ <a href="#bnf-user">user</a> @ ] <a href="#bnf-hostport">hostport</a>
+<dt id="bnf-gopheraddress">gopheraddress
+<dd> g o p h e r : / / <a href="#bnf-hostport">hostport</a>  [/ <a href="#bnf-gtype">gtype</a>  [ / <a href="#bnf-selector-def" id="bnf-selector">selector </a>]
+] [ ? <a href="#bnf-search" id="bnf-search-ref">search</a> ]
+<dt id="bnf-hostport">hostport
+<dd><a href="#bnf-host"> host</a> [ : <a href="#bnf-port">port</a> ]
+<dt id="bnf-host">host
+<dd><a href="#bnf-hostname"> hostname</a> | <a href="#bnf-hostnumber">hostnumber</a>
+<dt id="bnf-hostname">hostname
+<dd><a href="#bnf-ialpha"> ialpha</a> [  .  <a href="#bnf-hostname" id="bnf-hostname-ref">hostname</a> ]
+<dt id="bnf-hostnumber">hostnumber
+<dd><a href="#bnf-digits"> digits</a> . <a href="#bnf-digits">digits</a> . <a href="#bnf-digits">digits</a> . <a href="#bnf-digits">digits</a>
+<dt id="bnf-port">port
+<dd><a href="#bnf-digits"> digits</a>
+<dt id="bnf-selector-def">selector
+<dd><a href="#bnf-path"> path</a>
+<dt id="bnf-path">path
+<dd><a href="#bnf-void"> void</a> |  <a href="#bnf-xalphas">xalphas</a>  [  / <a href="#bnf-path">path</a> ]
+<dt><a id="bnf-search">search</a>
+<dd><a href="#bnf-xalphas"> xalphas</a> [ + <a href="#bnf-search" id="bnf-search-recursive">search</a> ]
+<dt><a id="bnf-user">user</a>
+<dd><a href="#bnf-xalphas"> xalphas</a>
+<dt id="bnf-anchor">anchor
+<dd><a href="#bnf-xalphas"> xalphas</a>
+<dt id="bnf-gtype">gtype
+<dd><a href="#bnf-xalpha"> xalpha</a>
+<dt id="bnf-xalpha">xalpha
+<dd><a href="#bnf-alpha"> alpha</a> | $ | | @ | ! | % | ^ | &amp; | * |  (  |  ) | . | <a href="#bnf-digit">digit</a>
+<dt><a id="bnf-xalphas">xalphas</a>
+<dd><a href="#bnf-xalpha"> xalpha</a> [ <a href="#bnf-xalphas">xalphas</a> ]
+<dt id="bnf-ialpha">ialpha
+<dd><a href="#bnf-alpha"> alpha</a> [ <a href="#bnf-xalphas">xalphas</a> ]
+<dt id="bnf-alpha">alpha
+<dd> a | b | c | d | e | f | g | h | i | j | k | l | m | n | o |
+p | q | r | s | t | u | v | w | x | y | z | A | B | C | D | E | F
+| G | H | I | J | K | L | M | N  | O | P | Q | R | S | T | U | V |
+W | X | Y | Z
+<dt id="bnf-digit">digit
+<dd> 0 |1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+<dt id="bnf-digits">digits
+<dd><a href="#bnf-digit"> digit</a> [ <a href="#bnf-digits">digits</a> ]
+<dt id="bnf-alphanum-def">alphanum
+<dd><a href="#bnf-alpha"> alpha</a> | <a href="#bnf-digit">digit</a>
+<dt id="bnf-alphanums">alphanums
+<dd><a href="#bnf-alphanum-def" id="bnf-alphanum"> alphanum</a> [ <a href="#bnf-alphanums">alphanums</a> ]
+<dt id="bnf-void">void
+<dd>
+</dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dl>
+See also: General <a href="naming-schemes.html">description</a> of this syntax, <a href="html-escape-characters.html">Escaping</a> conventions.
+        <address>
+<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" id="tim-bl-disclaimer">Tim BL</a>
+</address>
+</p>
+
+</main>
+
+</body>
+</html>

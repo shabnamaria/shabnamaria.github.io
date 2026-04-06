@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Link Types - WorldWideWeb</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.classless.red.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+        :root {
+            --brand-jade:   #042C1B;
+            --brand-amber:  #D8A100;
+            --brand-blue:   #0F3888;
+            --brand-pink:   #4B0C1F;
+            --brand-green:  #015234;
+            --charcoal:     #2C2C2C;
+        }
+
+        body { font-family: 'Quicksand', sans-serif; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Prompt', sans-serif; }
+
+        a {
+            color: var(--brand-blue);
+            text-decoration-color: var(--brand-green);
+            text-underline-offset: 3px;
+        }
+        a:hover {
+            color: var(--brand-pink);
+            text-decoration-color: var(--brand-pink);
+        }
+
+        header h1 {
+            margin-bottom: 0.25rem;
+        }
+        .title-rule {
+            border: none;
+            height: 3px;
+            background: linear-gradient(90deg, var(--brand-amber) 0%, var(--brand-jade) 100%);
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        nav[aria-label="breadcrumb"] ul li {
+            padding: 0;
+            margin: 0;
+        }
+        nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+            position: static;
+            display: inline;
+            width: auto;
+            margin: 0 0.4rem;
+            content: ">";
+            opacity: 0.5;
+        }
+        nav[aria-label="breadcrumb"] ul li a {
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <nav aria-label="breadcrumb">
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Hypertext</a></li>
+            <li>Link Types</li>
+        </ul>
+    </nav>
+    <h1>Link Types</h1>
+</header>
+<hr class="title-rule"/>
+
+<main id="main-content">
+
+    <section>
+        <p class="page-intro">See <a href="#">discussion of whether links should be typed</a>.</p>
+        
+        <p>Descriptive (normal) link types are mainly for the benefit of users and tracing, and graphics representation algorithms. Some link types, for example, express relationships between the things described by two nodes:</p>
+        
+        <ul>
+            <li>A is part of B / B includes A</li>
+            <li>A made B / B is made by A</li>
+            <li>A uses B / B is used by A</li>
+            <li>A refers to B / B is referred to by A</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Magic Link Types</h2>
+        <p>These have a significance known to the system, and may be treated in special ways. Many of these relate whole nodes, rather than particular anchors within them. (See also <a href="#">multi-ended links</a> and predicate logic). Suggestions:</p>
+        
+        <h3>UseIndex</h3>
+        <p>The destination is the related index for a search by a user reading this document who asks for an index search function.</p>
+        <p>A document may have any number of index links, causing several indexes to be searched in a client-defined manner.</p>
+        
+        <h3>UseGlossary</h3>
+        <p>The destination of the link is an index which should be used to resolve glossary queries in the document. (Typically, a double-click on a word which is not within an anchor).</p>
+        <p>A document may have any number of glossary links.</p>
+        
+        <h3>Annotation</h3>
+        <p>The information in the destination node is additional to that in the source node, and may be viewed at the same time. It may be filtered out (as a function of author?).</p>
+        <p>Annotation is used by one person to write the equivalent of "margin notes" or other criticism on another's document, for example.</p>
+        <p><a href="#">Tracing</a> may ignore annotations when generating trees or sequences.</p>
+        
+        <h3>Embedded Information</h3>
+        <p>If this link is followed, the node at the end of it is embedded into the display of the source node. This is supported by Guide, but not many other systems. It is used, in effect, by those systems (VAX/notes under Decwindows, Microsoft Word) which allow "Outlining" -- expanding a tree bit by bit.</p>
+        <p>The browser has a more difficult job to do if this is supported.</p>
+        
+        <h3>Person described by node A is author of node B</h3>
+        <p>This information can be used for protection, and informing authors of interest, for sending mail to authors, etc.</p>
+        
+        <h3>Person described by node A is interested in node B</h3>
+        <p>This information can be used for informing readers of changes.</p>
+        
+        <h3>Node A is in fact a previous version of node B</h3>
+        <p>This implies a direct historical relationship.</p>
+        
+        <h3>Node A is in fact a set of differences between B and its previous version.</h3>
+        <p>This information will probably not be stored as nodes, but be generated from regular diff files or some other delta method.</p>
+    </section>
+
+</main>
+</body>
+</html>

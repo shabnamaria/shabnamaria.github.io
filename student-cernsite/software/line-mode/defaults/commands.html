@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Commands -- /LineMode</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Commands</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../linemode-browser.html">Line Mode Browser</a></li><li>Commands</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+        The following commands are available at the prompt within<a href="quick-guide.html"> www</a> . Some
+are disabled when not applicable. All commands may be abbreviated.
+Case is not significant.
+<dl>
+<dt>Help
+<dd> Gives a list of available commands depending on the context,
+the version number of the www program, and the<a href="#"> hypertext address</a> ,
+(or UDI) of the document you are reading.
+<dt>&amp;lt.Return&amp;gt.
+<dd> Just hitting Return displays the next page of the current
+document.
+<dt>&amp;lt.number&amp;gt.
+<dd> Typing a number by itself follows the corresponding
+reference from the currently displayed document.
+<dt>Find keywords
+<dd> Queries the current index with the supplied keywords
+(separated by blanks). The interpretation of the keywords depends
+on the particular information server you're looking at. In most cases,
+it will search a database for entries matching the keywords, and will
+display the results with possibly links to further details. For more
+complex queries, instructions should be present in the cover page.
+The "Find" command can be omitted if the first keyword does not conflict
+with another www command.
+<dt>Back
+<dd> Goes back to the document you were reading before.
+<dt>Home
+<dd> Goes back to the first document you were reading.
+<dt>Recall
+<dd> Without a parameter, gives a numbered list of the documents
+you have visited.  To select one, type "Recall" followed by the number.
+<dt>List
+<dd> Gives a numbered list of the links from the current document,
+giving the title of the target documents (or addresses if no title).
+To follow a link, type the number by itself as above.
+<dt>Next, Previous
+<dd> Goes to the next or previous document in the list of
+pointers from the document that led to the current one. This is better
+explained with an example: suppose you are reading a document which
+looks like a menu, and you want to read all entries in turn. You first
+type "1" to read the first referred document (by following the first
+link), and then you type "next" or just "n" to read the next one from
+the menu, without actually coming back to the menu and typing "2",
+etc.
+<dt>Go &amp;lt.address&amp;gt.
+<dd> Goes to the document represented by the given<a href="#"> hypertext
+address</a> , which is interpreted relatively to the current document.
+<dt>Up, Down
+<dd> Scrolls up or down one page in the current document.
+<dt>Source
+<dd> Followed by another command, causes raw source to be generated
+for that command. Useful for printing postscript files without formatting,
+with SOURCE PRINT.  See <a href="source-examples.html">examples</a> .
+<dt>Top, Bottom
+<dd> Goes to the top or the bottom of the current document.
+<dt>Verbose
+<dd> Toggles verbose mode (for maintenance purposes).
+<dt>Quit
+<dd> Leaves the application.
+</dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dl>
+On Unix versions, the following extra commands are available:
+<dl>
+<dt>Print
+<dd> Prints the current document, without the numbered document references.
+A background www is launched to do that, and its output is piped to
+the command defined by the environment variable WWWPRINTCOMMAND
+("lpr" by default).
+<dt>&amp;gt. file, &amp;gt.&amp;gt. file
+<dd> Saves or appends the current document to
+the given file, without the numbered document references. A background
+www is launched to do that.
+<dt>| command
+<dd> Pipes the current document to the given command, without
+the numbered document references. A background www is launched to
+do that.
+<dt>! command
+<dd> Executes the given shell command without leaving www.
+<dt>CD (or LCD) directory
+<dd> Changes the local working directory. "! cd directory"
+won't do this because it applies to a subshell.
+</dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dl>
+<address>
+<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" id="tim-bl-disclaimer">Tim BL</a>
+</address>
+
+
+</main>
+
+</body>
+</html>

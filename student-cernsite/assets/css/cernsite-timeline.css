@@ -1,0 +1,53 @@
+/* =============================================================
+   cernsite-timeline.css  —  www-project/www-project-timeline.html only
+   Vertical timeline component
+   ============================================================= */
+
+.timeline {
+    position: relative;
+    max-width: 42rem;
+    margin: 2rem auto;
+    padding: 0;
+    list-style: none;
+}
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 1.5rem;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--brand-blue);
+}
+.timeline-item {
+    position: relative;
+    padding: 0 0 2rem 3.5rem;
+}
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0.85rem;
+    top: 0.35rem;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--brand-blue);
+    border: 3px solid #fff;
+    box-shadow: 0 0 0 2px var(--brand-blue);
+}
+.timeline-date {
+    font-weight: 700;
+    color: var(--brand-blue);
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
+}
+.timeline-content {
+    font-size: 0.9375rem;
+    line-height: 1.6;
+    color: var(--charcoal);
+}
+@media (max-width: 480px) {
+    .timeline::before  { left: 1rem; }
+    .timeline-item     { padding-left: 2.5rem; }
+    .timeline-item::before { left: 0.35rem; }
+}

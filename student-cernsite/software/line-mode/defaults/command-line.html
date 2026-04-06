@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>CommandLine -- /LineMode</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Command line syntax</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../w3-software.html">Software Products</a></li><li><a href="../linemode-browser.html">Line Mode Browser</a></li><li>Command Line</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+        The syntax is:
+<xmp>
+\t\twww [options]  [docaddress [keywords]]
+
+</xmp>With no arguments, the <a href="quick-guide.html">www</a> shell command allows you to browse from
+the system default page, /usr/local/lib/WWW/default.html.
+<p>Options should be specified before other arguments. Currently available
+options are:-
+<dl>
+<dt>-n 
+<dd>Non-interactive mode.  Outputs the formatted document to the standard
+output, then exits.  Pages are delimited with form feed (FF) characters.
+<dt>-
+<dd> A minus sign with no trailing characters indicates that the program
+will accept <a href="#">HTML format</a> input from the standard input. This allows
+www to be used as a filter from html to plain text for example. Relative
+links in the input are parsed as though the address of the document
+was that of the home page (or  docaddress if specified).  Implies
+non-interactive mode.
+<dt>-listrefs
+<dd> Implies non-interactive. Adds a list of the addresses of
+all documents references to the end.
+<dt>-pn
+<dd> where n is a number, specifies the page length. Without a number,
+makes the page length infinite. Default is 24. 
+<dt>-source
+<dd> Display the original source of a document instead of parsing
+it. Has effect for HTML from w3 servers, and news articles. (v1.2a
+or later)
+<dt>-v
+<dd> Verbose mode: Gives a running commentary on the program's attempts
+to read data in various ways.
+<dt>-wn
+<dd> where n is a number, specifies the page width in columns. The
+default is 78, 79 or 80 depending on the system. (v1.0 or later)
+<dt>-na
+<dd> Hides anchor positions in the text. Useful, when printing out
+the document.
+<dt>-a  format
+<dd> Specifies the printf-style format string to be used when
+printing references. Must contain the two characters "%d" where the
+numbers should occur.  Be sure to escape or quote any special characters
+you use.  For example under unix:
+</dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dd></dt></dl>
+<xmp>
+\t\t\t\twww -a \\&lt;%d\\&gt;
+\t\t\t\twww -a " (Type %d)"
+
+</xmp>If present, the next argument (docaddress) is the<a href="#"> hypertext address</a>
+, of  the document at which you want to start browsing. You may want
+to define an alias for www followed by name of your favourite index.</p>
+<p>Any further command line arguments are taken as keywords. The first
+argument must refer to an index in this case. The index is searched
+for entries matching the keywords, and a list of matching entries
+is displayed.
+        <address>
+<a href="https://en.wikipedia.org/wiki/Tim_Berners-Lee" id="tim-bl-disclaimer">Tim BL</a>
+</address>
+</p>
+
+</main>
+
+</body>
+</html>

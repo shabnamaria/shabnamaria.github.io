@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>HyperText Design Issues: Navigational techniques</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Navigational Techniques and Tools</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../technical/technical-details.html">Technical</a></li><li><a href="overview.html">Design Issues</a></li><li>Navigation</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+        There are a number of ways of accessing the data one is looking for.
+Navigational access (i.e., following links) is the essence of hypertext,
+but this can be enhanced with a number of facilities to make life
+more efficient and less confusing.
+<h2>Defined structure</h2><p>It is sometimes nice for a reader to be able to reference a document
+structure built specifically to enhance his understanding, by the
+document author. This is especially important when the structure is
+part of the information the author wishes to convery.</p>
+<p>See a <a href="#">separate discussion of this point</a> .</p>
+<h2>Graphic Overview</h2><p>A Graphic overview  is useful and could be built automatically. Should
+it be made by the author, server, browser or an independent daemon?</p>
+<p>Can one provide an overview with less granularity than the basic web
+by grouping nodes in some way?  The user could select from <a href="topology.html#link-types">link types</a>
+used to imply the tree structure. <a href="../about/people.html#groff">(JFG)</a></p>
+<p>I think this depends on how long it will take. It might be interesting
+to experiment with daemons which will independently make and update
+maps of the web. This is not essential for a first pilot model.</p>
+<h2>History mechanism</h2><p>This allows users to retrace their steps. Typical functions provided
+can be interpreted in a hypertext web as follows:</p>
+<dl>
+<dt>Home
+<dd> Go to initial node
+<dt>Back
+<dd> Go to the node visited before this one in chronological order.
+Modify the history to remove the current node.
+<dt>Next
+<dd> When the current node is one of several nodes linked to the \ufffdback\ufffd
+node, go to the next of those nodes. Leave the \ufffdBack\ufffd node unchanged.
+Modify the history to remove the current node and replace it with
+the "next" (new current) node.
+<dt>Previous
+<dd> When the current node is one of several nodes linked to the
+\ufffdback\ufffd node, go to the preceding one of those nodes.
+</dd></dt></dd></dt></dd></dt></dd></dt></dl>
+In many hypertext systems, a tree structure is forcibly imposed on
+the data, and these functions are interpreted only with respect to
+the links in the tree. However, the reader as he browses defines a
+tree, and it may be more relevant to him to use that tree as a basis
+for these functions. I would therefore suggest that an explicit tree
+structure not be enforced. 
+<p>(If a default tree is needed by the system for some reason, then we
+can always use the creation order: when a node is created it is always
+created with a link to an existing node. Such links, whatever their
+type, may be used to define a tree. If they are deleted, an alternative
+link must be chosen to become a tree link.) </p>
+<p>If authors want to write a tree structure into their documents, then
+the words "after", "before" and "above" could be used to mean a static
+structure. 
+<h2>Index</h2><p>An Index helps new readers of a large database quickly find an obscure
+node. Keyword schemes I include in the general topic of indexes. The
+index must, like a graphic overview, be built either by the author,
+or automatically by one of the server, browser, or a daemon.   The
+index entries may be taken from the titles, a keyword list, or the
+node content  or a combination of these. Note that keywords, if they
+are specifically created rather than random words, map onto hypertext
+\ufffdconcept\ufffd nodes, or nodes of special type \ufffdkeyword\ufffd. It is interesting
+to establish an identity relationship between keywords in two different
+databases -- this may lead a searcher from one database into another.</p>
+<p>Index schemes are important  but  indexes or keywords should look
+like normal hypertext nodes.  The particular special operation one
+can do with a good keyword index system which one can't do with a
+normal hypertext system is to do a fast search on multiple keywords.
+This must to be provided as an extension to the hypertext navigation
+scheme. However, it is in fact analogous to a trace starting with
+more than one node, which is a valid hypertext tracing operation.
+The difference is that the tracing would normally be done by a browser,
+but the indexed search done by the server.</p>
+<p>When many nodes in a web represent different indexes, then a query
+search can chain between them (See "<a href="ManyIndexes.html"> Web of indexes</a> ").</p>
+<p>See also:<a href="../../Conferences/ECHT90/HTandIR.html"> HyperText and Information Retrieval</a></p>
+<h2>Node Names</h2><p>These allow faster access if one knows the name. They allow people
+to give references to hypertext nodes in other documents, over the
+telephone, etc. This is very useful. However,  in Notecards, where
+the naming of nodes was enforced, it was found that thinking up names
+for nodes was a bore for users. KMS thought that being able to jump
+to a named node was important. The node name allows a command line
+interface to be used to add new nodes.</p>
+<p>I think that naming a node should be optional: perhaps by default
+the system could provide a number which can be used instead of a name.The
+system should certainly support the naming of nodes, and access by
+name.</p>
+<h2>Menu of links</h2>Regular linkwise navigation may be done with \ufffdhotspots\ufffd (highlighted
+anchors) or may be done with a menu. It may be useful to have a menu
+of all the links from a given node as an alternative way of navigating.
+Enquire, for example, offers a menu of references as the only way
+of navigating.
+    </p>
+
+</main>
+
+</body>
+</html>

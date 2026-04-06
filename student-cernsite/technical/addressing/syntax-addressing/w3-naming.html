@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>WorldWideWeb Address Formats</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>W3 Naming Schemes</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../technical-details.html">Technical</a></li><li><a href="naming-schemes.html">Addressing</a></li><li>W3 Naming</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p>(See also: a discussion of <a href="../design-issues/document-naming.html">design issues involved</a>, <a href="markup-bnf.html">BNF syntax</a>, <a href="#">W3 background</a>)</p>
+<p>The format of a hypertext name consists of the name of the naming
+sub-scheme to be used, then a name in a format particular to that
+subscheme, then an optional anchor identifier within the document.
+For example, the format is for all internet-based access methods:</p>
+<pre>  scheme : // host.domain:port / path / path  # anchor</pre>
+<p>A suffix <code>#</code> anchor id allows one to refer to a particular anchor within a document.</p>
+<p>A suffix <code>?</code> followed by words separated by <code>+</code> signs allows one to search
+an index (see <a href="search.html">details</a>).</p>
+<p>References from one document to another with a similar name may be
+abbreviated to a <a href="relative-naming.html">relative name</a>. This imposes certain restrictions
+on the way that the "path" is represented.</p>
+<p>A special format is used to represent a search on an index. See also:
+the full <a href="markup-bnf.html">BNF description</a>, about <a href="html-escape-characters.html">escaping illegal characters</a>.</p>
+<h2>Examples</h2>
+<pre>  file://cernvax.cern.ch/usr/lib/WWW/default.html#123</pre>
+<p>This is a fully qualified file name, referring to a document in the
+file name space of the given internet node, and an imaginary anchor
+123 within it.</p>
+<pre>  #greg</pre>
+<p>This refers to anchor "greg" in the same document as that in which
+the name appears.</p>
+<h2>Naming sub-schemes</h2>
+<p>Different schemes usually use different protocols on the network.
+The format of the address after the scheme name is a function of the
+particular scheme. In practice, all internet-based schemes have a
+common format for the node name and port. Schemes currently defined
+are as follows, with links to more details.</p>
+<dl>
+<dt>file</dt>
+<dd>Access is provided to files, using whatever means the browser
+  and/or gateways have to reach files on obscure machines.</dd>
+<dt>news</dt>
+<dd>Access is provided to news articles, and newsgroups, normally
+  using the NNTP protocol.</dd>
+<dt>http</dt>
+<dd>Access is provided to any other information using the <a href="../protocols/http.html">HTTP search
+  and retrieve protocol</a>. The internal addressing of the information
+  system is mapped onto a W3 path.</dd>
+<dt>telnet</dt>
+<dd>Access is provided by an interactive telnet session. This is
+  provided ONLY as an interface to other existing online systems which
+  cannot or have not been mapped onto the W3 space.</dd>
+<dt>gopher</dt>
+<dd>Access is provided using the "gopher" protocol. The gopher
+  protocol is similar to HTTP but uses separate concepts of menus and
+  text files rather than hypertext.</dd>
+<dt>wais</dt>
+<dd>Access is provided using the WAIS adaptation of the Z39.50 protocol.</dd>
+<dt>x500</dt>
+<dd>Format to be defined.</dd>
+</dl>
+<p>Systems (such as WAIS) which are not currently accessed directly by
+W3 servers may be accessed through gateways, in which case the document
+address is encoded within the http address of the document in the
+gateway. Browsers which do not have the ability to use certain protocols
+may (in principle) be configured to automatically use certain gateways
+for certain addressing schemes.</p>
+<p>This will allow, for example, simple PC-based clients to follow links
+through X500 name servers.</p>
+
+
+</main>
+
+</body>
+</html>

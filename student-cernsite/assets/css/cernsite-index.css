@@ -1,0 +1,50 @@
+/* =============================================================
+   cernsite-index.css  —  home page (index.html) only
+   Sitemap grid + footer line
+   ============================================================= */
+
+.sitemap-section {
+    background: #fbfbfb;
+    border-top: 1px solid var(--brand-amber);
+    border-bottom: 1px solid var(--brand-amber);
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    margin-left: calc(-1 * var(--pico-block-spacing-horizontal, 1rem));
+    margin-right: calc(-1 * var(--pico-block-spacing-horizontal, 1rem));
+    padding-left: var(--pico-block-spacing-horizontal, 1rem);
+    padding-right: var(--pico-block-spacing-horizontal, 1rem);
+}
+.sitemap-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+}
+.sitemap-grid dt {
+    font-family: 'Prompt', sans-serif;
+    font-weight: 600;
+    color: var(--brand-green);
+    margin-bottom: 0.25rem;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+.sitemap-grid dd {
+    margin: 0 0 0.2rem 0;
+    font-size: 0.9rem;
+    line-height: 1.7;
+    color: var(--charcoal);
+}
+.sitemap-grid dd a { text-decoration: none; color: var(--charcoal); }
+.sitemap-grid dd a:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--brand-green);
+    text-underline-offset: 3px;
+}
+.footer-line {
+    font-size: 0.8125rem;
+    text-align: center;
+    padding-top: 0.5rem;
+    color: var(--pico-color-grey-500, #7b8495);
+}
+.footer-line a { color: var(--brand-pink); text-decoration: none; }
+.footer-line a:hover { text-decoration: underline; }

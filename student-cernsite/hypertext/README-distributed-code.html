@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Read Me - WorldWideWeb Distributed Code</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>W3 Distributed Code: Read Me</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../index.html">Home</a></li><li>Getting Code</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+<p class="page-intro">This documentation accompanies the distributed WorldWideWeb software. It contains information regarding the source code, directory structures, and installation procedures for the various browsers and server daemons within the project.</p>
+<section>
+<div class="historical-note">
+<p><strong>Note:</strong> This file is an abridged version of the information available directly on the web. If in doubt, read the web master-data via telnet to <code>info.cern.ch</code>.</p>
+</div>
+</section>
+<section>
+<h2>Archive Directory Structure</h2>
+<p>Under the <code>/pub/www</code> root, you will find <code>bin</code>, <code>src</code>, and <code>doc</code> directories. Key archives include:</p>
+<dl>
+<dt><code>src/WWWLibrary_v.vv.tar.Z</code></dt>
+<dd>The common W3 Library. Contains all source and Makefiles for supported systems.</dd>
+<dt><code>src/WWWLineMode_v.vv.tar.Z</code></dt>
+<dd>The Line Mode Browser source. Requires the Common Library to compile.</dd>
+<dt><code>src/WWWDaemon_v.vv.tar.Z</code></dt>
+<dd>The HTTP daemon and WWW-WAIS gateway programs.</dd>
+<dt><code>bin/xxx/bbbb</code></dt>
+<dd>Executable binaries for specific systems. (Note: HP systems are historically labeled as "snake").</dd>
+</dl>
+</section>
+<section>
+<h2>Browser Installation</h2>
+<h3>NeXTStep Browser/Editor</h3>
+<p>The application for the NeXT is located in <code>WWW/Next/Implementation/WorldWideWeb.app</code>. When installing the app, ensure the <code>default.html</code> points to useful local or global information. We recommend keeping this up to date with pointers to your specific site resources and elsewhere.</p>
+<h3>Line Mode Browser</h3>
+<p>If a binary exists for your system, download it along with the <code>WWWLineModeDefaults.tar.Z</code> documentation. Link the documentation directory into <code>/usr/local/lib/WWW</code> and place the <code>www</code> executable in your path.</p>
+<h3>Viola Browser for X11</h3>
+<p>To generate Viola from source, you will need the W3 library and the Viola source files. You must generate the XPA and XPM libraries and the W3 library before making Viola itself.</p>
+</section>
+<section>
+<h2>General Participation</h2>
+<p>Your comments on the code or documentation are appreciated. If you write your own hypertext and make it available via a server, inform the project team so we may add pointers to it. <strong>Thus spreads the web...</strong></p>
+</section>
+<address>
+            Tim Berners-Lee<br/>
+            WorldWideWeb Project<br/>
+            CERN, 1211 Geneva 23, Switzerland
+        </address>
+
+
+</main>
+
+</body>
+</html>

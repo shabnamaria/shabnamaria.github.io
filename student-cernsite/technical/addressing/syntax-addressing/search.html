@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html data-theme="light" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>/private/Net/cernvax/userd/tbl/hypertext/WWW/Addressing/Search.html</title>
+    <!-- Pico CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.fluid.classless.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@2/css/pico.colors.min.css"/>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;500;600;700&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+    <!-- Site styles -->
+    <link rel="stylesheet" href="../../../assets/css/cernsite-base.css"/>
+    <link rel="stylesheet" href="../../../assets/css/cernsite-page.css"/>
+
+</head>
+<body>
+
+<header>
+    <h1>Address for an index Search</h1>
+    <hr class="title-rule"/>
+    <nav aria-label="breadcrumb"><ul><li><a href="../../../index.html">Home</a></li><li><a href="../../technical-details.html">Technical</a></li><li><a href="naming-schemes.html">Addressing</a></li><li>Search</li></ul></nav>
+</header>
+
+<main id="main-content">
+
+
+        If a given hypertext node is an index, or the server has an index
+associated with it, then a search may be done on that index by suffixing
+the name of the index with a list of keywords, after a question mark:
+<xmp>\t\taddressofindex ? keywordlist
+
+</xmp>The address of the index is a normal hypertext address. In the keywordlist,
+multiple keywords are separated by plus signs (+) .  (See <a href="markup-bnf.html">BNF syntax
+description</a> .)  The resulting string still does not contain any spaces.
+It may be considered to be the hypertext address of a document which
+is the result of making the keyword search on the index. Normally,
+if the search was successful, the document returned will contain anchors
+leading to other documents which match the selection criteria. 
+<p>The search method, and the logical and lexical functions, weights,
+etc applied to the keywords will depend on the index address.  One
+actual index may have several hypertext addresses,  which when searched
+on will behave in different ways. For example, one may allow a search
+on author-given keywords only, while another may be a full text search.
+These things particular to an index should be descibed in the hypertext
+page for the index node itself (or in linked documents). For example,
+a server may allow specific boolean search combinations may be represented
+by the words "and", "or" and "not".
+<h2>Example:</h2>
+<xmp>\t\t\thttp://cernvm/FIND/?sgml+cms
+
+</xmp>indicates the result of perfoming a search for keywords "sgml" and
+"cms" on the index http://cernvm/FIND/.
+    </p>
+
+</main>
+
+</body>
+</html>

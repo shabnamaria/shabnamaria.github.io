@@ -1,0 +1,30 @@
+/* =============================================================
+   cernsite-page.css  —  inner pages (not index)
+   Breadcrumb: compact, tight under the title rule
+   ============================================================= */
+
+nav[aria-label="breadcrumb"] {
+    margin-top: 0;
+    margin-bottom: 0.85rem;
+}
+nav[aria-label="breadcrumb"] ul {
+    margin: 0;
+    padding: 0;
+}
+nav[aria-label="breadcrumb"] ul li {
+    padding: 0;
+    margin: 0;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+nav[aria-label="breadcrumb"] ul li:not(:last-child)::after {
+    position: static;
+    display: inline;
+    width: auto;
+    margin: 0 0.35rem;
+    content: ">";
+    opacity: 0.45;
+}
+nav[aria-label="breadcrumb"] ul li a {
+    margin: 0;
+}
